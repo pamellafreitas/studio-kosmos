@@ -1,0 +1,178 @@
+/* ==========================================================================
+   Studio Kosmos - Main Design System & Custom Styles
+   ========================================================================== */
+
+/* 1. Design System Font Variables */
+:root {
+    --font-sans: 'Inter', sans-serif;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-serif: 'Instrument Serif', serif;
+}
+
+/* 2. Global Typography Overrides */
+body {
+    font-family: var(--font-sans) !important;
+}
+
+h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: var(--font-display) !important;
+}
+
+.font-serif {
+    font-family: var(--font-serif) !important;
+}
+
+.font-sans {
+    font-family: var(--font-sans) !important;
+}
+
+.font-montserrat {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+/* 3. Hero Carousel Responsive Positioning */
+.hero-carousel-responsive {
+    margin-top: 15px;
+    transform: translateY(10px);
+    transition: transform 0.4s ease, margin-top 0.4s ease;
+}
+
+@media (max-width: 768px) {
+    .hero-carousel-responsive {
+        margin-top: 10px !important;
+        transform: translateY(5px) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-carousel-responsive {
+        margin-top: -10px !important;
+        transform: translateY(-10px) !important;
+    }
+}
+
+/* 4. Ultra-Elegant & Subtle Animated Card Borders */
+@keyframes borderGradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Animated Card Utility Class */
+.card-animated-border {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+
+.card-animated-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(180, 22, 88, 0.45), rgba(70, 18, 111, 0.35), rgba(255, 255, 255, 0.15), rgba(180, 22, 88, 0.45));
+    background-size: 200% 200%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.35;
+    animation: borderGradientMove 12s ease-in-out infinite;
+    pointer-events: none;
+    transition: opacity 0.5s ease, background 0.5s ease;
+}
+
+.card-animated-border:hover::before {
+    opacity: 0.85;
+    background: linear-gradient(135deg, rgba(180, 22, 88, 0.7), rgba(70, 18, 111, 0.5), rgba(255, 255, 255, 0.3), rgba(180, 22, 88, 0.7));
+    animation-duration: 8s;
+}
+
+/* Subtle glowing pulse for special highlight cards */
+@keyframes borderGlowPulse {
+    0%, 100% {
+        box-shadow: 0 0 15px rgba(180, 22, 88, 0.15);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(180, 22, 88, 0.35);
+    }
+}
+
+.pulse-border-glow {
+    animation: borderGlowPulse 4s ease-in-out infinite;
+}
+
+/* 5. Scroll Reveal / Entrance Animations */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger delay helpers */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* 6. Infinite Marquee Carousel for Portfolio */
+@keyframes infiniteMarquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.portfolio-marquee-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    animation: infiniteMarquee 38s linear infinite;
+}
+
+.portfolio-marquee-container:hover .portfolio-marquee-track {
+    animation-play-state: paused;
+}
+
+/* 7. Custom Responsive Navbar Breakpoint at 1058px */
+@media (max-width: 1057px) {
+    .nav-desktop-menu {
+        display: none !important;
+    }
+    .nav-mobile-toggle {
+        display: flex !important;
+    }
+    .nav-mobile-dropdown {
+        display: flex !important;
+    }
+    .nav-mobile-dropdown.hidden {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1058px) {
+    .nav-desktop-menu {
+        display: flex !important;
+    }
+    .nav-mobile-toggle {
+        display: none !important;
+    }
+    .nav-mobile-dropdown {
+        display: none !important;
+    }
+}
