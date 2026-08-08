@@ -40,15 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 3. Mobile Navigation Menu Toggle
-    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenuToggle = document.getElementById('mobile-menu-btn') || document.getElementById('mobile-menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
 
     if (mobileMenuToggle && mobileMenu) {
-        mobileMenuToggle.addEventListener('click', () => {
+        mobileMenuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Close mobile menu when clicking any link
+        // Close mobile menu when clicking any link inside
         document.querySelectorAll('.mobile-menu-link').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
