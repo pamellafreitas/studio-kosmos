@@ -2505,9 +2505,14 @@
 
                 <!-- Right Column: Contact Form with Standard Page Button Style -->
                 <div class="lg:col-span-7 reveal-on-scroll reveal-delay-1 flex flex-col">
-                    <form action="#" method="POST"
-                        onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');"
+                    <form action="https://api.web3forms.com/submit" method="POST" id="contact-form"
                         class="h-full p-8 sm:p-10 md:p-12 rounded-3xl bg-white/[0.03] border border-white/10 card-animated-border backdrop-blur-2xl shadow-2xl flex flex-col justify-between space-y-8">
+
+                        <!-- Web3Forms Access Key & Settings -->
+                        <input type="hidden" name="access_key" value="f08b784c-0c72-4722-aca4-f1b48a30eb63">
+                        <input type="hidden" name="subject" value="Novo Contato do Site — Stúdio Kosmos">
+                        <input type="hidden" name="from_name" value="Stúdio Kosmos Website">
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
                         <div class="flex items-center justify-between pb-6 border-b border-white/10">
                             <div>
@@ -2529,12 +2534,22 @@
                                     class="w-full px-6 py-4 rounded-2xl bg-white/[0.04] border border-white/15 text-white placeholder-white/40 focus:outline-none focus:border-[#B41658] focus:bg-white/[0.08] transition-all font-sans text-sm sm:text-base">
                             </div>
 
-                            <div>
-                                <label for="email"
-                                    class="block font-sans text-xs font-semibold uppercase tracking-wider text-white/80 mb-2">Seu
-                                    E-mail</label>
-                                <input type="email" id="email" name="email" required placeholder="seu@email.com"
-                                    class="w-full px-6 py-4 rounded-2xl bg-white/[0.04] border border-white/15 text-white placeholder-white/40 focus:outline-none focus:border-[#B41658] focus:bg-white/[0.08] transition-all font-sans text-sm sm:text-base">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="email"
+                                        class="block font-sans text-xs font-semibold uppercase tracking-wider text-white/80 mb-2">Seu
+                                        E-mail</label>
+                                    <input type="email" id="email" name="email" required placeholder="seu@email.com"
+                                        class="w-full px-6 py-4 rounded-2xl bg-white/[0.04] border border-white/15 text-white placeholder-white/40 focus:outline-none focus:border-[#B41658] focus:bg-white/[0.08] transition-all font-sans text-sm sm:text-base">
+                                </div>
+
+                                <div>
+                                    <label for="whatsapp"
+                                        class="block font-sans text-xs font-semibold uppercase tracking-wider text-white/80 mb-2">Seu
+                                        WhatsApp</label>
+                                    <input type="tel" id="whatsapp" name="whatsapp" required placeholder="(DDD) 99999-9999"
+                                        class="w-full px-6 py-4 rounded-2xl bg-white/[0.04] border border-white/15 text-white placeholder-white/40 focus:outline-none focus:border-[#B41658] focus:bg-white/[0.08] transition-all font-sans text-sm sm:text-base">
+                                </div>
                             </div>
 
                             <div>
@@ -2558,6 +2573,48 @@
                         </button>
 
                     </form>
+
+                    <!-- Web3Forms Submission Script -->
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            const contactForm = document.getElementById("contact-form");
+                            if (contactForm) {
+                                contactForm.addEventListener("submit", async function(e) {
+                                    e.preventDefault();
+                                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                                    const btnTextSpan = submitBtn.querySelector('span.font-display');
+                                    const originalText = btnTextSpan.textContent;
+
+                                    submitBtn.disabled = true;
+                                    btnTextSpan.textContent = "ENVIANDO MENSAGEM...";
+
+                                    try {
+                                        const response = await fetch("https://api.web3forms.com/submit", {
+                                            method: "POST",
+                                            body: new FormData(contactForm)
+                                        });
+                                        const data = await response.json();
+                                        if (data.success) {
+                                            btnTextSpan.textContent = "MENSAGEM ENVIADA COM SUCESSO! ✨";
+                                            contactForm.reset();
+                                            setTimeout(() => {
+                                                btnTextSpan.textContent = originalText;
+                                                submitBtn.disabled = false;
+                                            }, 5000);
+                                        } else {
+                                            alert("Erro ao enviar: " + (data.message || "Tente novamente."));
+                                            btnTextSpan.textContent = originalText;
+                                            submitBtn.disabled = false;
+                                        }
+                                    } catch (err) {
+                                        alert("Erro de conexão. Por favor, tente via WhatsApp.");
+                                        btnTextSpan.textContent = originalText;
+                                        submitBtn.disabled = false;
+                                    }
+                                });
+                            }
+                        });
+                    </script>
                 </div>
 
             </div>
