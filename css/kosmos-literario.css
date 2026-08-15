@@ -1,0 +1,317 @@
+/* Design System Tokens — Enhanced Cosmic Purple Theme #9110DC */
+:root {
+  --brand-purple: #9110DC;
+  --brand-purple-bright: #D98BFF;
+  --brand-magenta: #E056FD;
+  --brand-dark: #0A0812;
+}
+
+/* OVERRIDE: Desativar os pontilhados globais do body vindos do animations.css */
+body::before,
+body:before {
+  display: none !important;
+  content: none !important;
+  background-image: none !important;
+  opacity: 0 !important;
+}
+
+.text-glow-purple {
+  text-shadow: 0 0 20px rgba(224, 86, 253, 0.85), 0 0 40px rgba(145, 16, 220, 0.7);
+}
+
+.box-glow-purple {
+  box-shadow: 0 0 35px rgba(166, 37, 254, 0.75), 0 0 60px rgba(224, 86, 253, 0.4);
+}
+
+/* Header 1000px Breakpoint Custom Responsiveness */
+@media (min-width: 1000px) {
+  .nav-desktop-1000 {
+    display: flex !important;
+  }
+  .btn-mobile-1000 {
+    display: none !important;
+  }
+  #mobile-menu {
+    display: none !important;
+  }
+}
+
+@media (max-width: 999px) {
+  .nav-desktop-1000 {
+    display: none !important;
+  }
+  .btn-mobile-1000 {
+    display: block !important;
+  }
+}
+
+/* Hero 3D Card Stack Responsive Transforms (Wide Fan-Out for Mobile) */
+.hero-card-back {
+  transform: translate3d(78%, -6px, -60px);
+}
+
+.hero-card-front {
+  transform: translate3d(-78%, 6px, 60px);
+}
+
+@media (min-width: 640px) {
+  .hero-card-back {
+    transform: translate3d(65%, -4px, -65px);
+  }
+  .hero-card-front {
+    transform: translate3d(-65%, 4px, 65px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-card-back {
+    transform: translate3d(50%, 0%, -70px);
+  }
+  .hero-card-front {
+    transform: translate3d(-50%, 0%, 70px);
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-card-back {
+    transform: translate3d(60%, 0%, -85px);
+  }
+  .hero-card-front {
+    transform: translate3d(-60%, 0%, 85px);
+  }
+}
+
+/* ==========================================================================
+   CONCEITO 1: NEBULOSA FLUIDA PRISMÁTICA (Sem Pontos, Sem Grades, Sem Linhas)
+   ========================================================================== */
+
+/* Keyframe Animations for Fluid Breathing Nebulas */
+@keyframes nebula-breath-1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(40px, -30px) scale(1.2);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.7;
+  }
+}
+
+@keyframes nebula-breath-2 {
+  0% {
+    transform: translate(0, 0) scale(1.1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-50px, 40px) scale(0.9);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate(0, 0) scale(1.1);
+    opacity: 0.6;
+  }
+}
+
+/* Section Background 1: Hero Cosmic Video Overlay */
+.bg-hero-cosmic {
+  background-color: #0A0812;
+}
+
+/* Section Background 2: Section #conexao - Nebulosa Prismática Profunda */
+.bg-conexao-prism {
+  background: linear-gradient(180deg, #0A0812 0%, #130B24 45%, #0B0814 100%);
+  position: relative;
+}
+
+/* Section Background 2.5: Section #sobre - Nebulosa Prismática Sobre */
+.bg-sobre-prism {
+  background: linear-gradient(180deg, #0B0814 0%, #140A28 50%, #090710 100%);
+  position: relative;
+}
+
+.nebula-prism-cloud-1 {
+  background: radial-gradient(circle, rgba(224, 86, 253, 0.38) 0%, rgba(145, 16, 220, 0.28) 45%, transparent 75%);
+  filter: blur(140px);
+  animation: nebula-breath-1 18s infinite ease-in-out;
+}
+
+.nebula-prism-cloud-2 {
+  background: radial-gradient(circle, rgba(197, 95, 255, 0.35) 0%, rgba(42, 10, 74, 0.35) 60%, transparent 80%);
+  filter: blur(160px);
+  animation: nebula-breath-2 22s infinite ease-in-out;
+}
+
+/* Section Background 3: Section #livros - Nebulosa Prismática Violeta */
+.bg-livros-prism {
+  background: linear-gradient(180deg, #0B0814 0%, #1C0C30 50%, #090710 100%);
+  position: relative;
+}
+
+.nebula-prism-cloud-3 {
+  background: radial-gradient(circle, rgba(224, 86, 253, 0.42) 0%, rgba(145, 16, 220, 0.3) 50%, transparent 75%);
+  filter: blur(150px);
+  animation: nebula-breath-1 20s infinite ease-in-out reverse;
+}
+
+/* Section Background 4: Section #portfolio - Nebulosa Prismática Portfólio */
+.bg-portfolio-prism {
+  background: linear-gradient(180deg, #090710 0%, #160A2A 45%, #0B0814 100%);
+  position: relative;
+}
+
+/* Section Background 5: Section #pacotes-literarios - Nebulosa Magenta & Roxo */
+.bg-pacotes-prism {
+  background: linear-gradient(180deg, #090710 0%, #18092B 40%, #11071F 75%, #0A0712 100%);
+  position: relative;
+}
+
+/* Section Background 6: Section #depoimentos - Nebulosa Prismática Depoimentos */
+.bg-depoimentos-prism {
+  background: linear-gradient(180deg, #0A0712 0%, #17092C 45%, #0D0716 100%);
+  position: relative;
+}
+
+/* Section Background 7: Section #faq - Nebulosa Prismática FAQ */
+.bg-faq-prism {
+  background: linear-gradient(180deg, #0D0716 0%, #16092B 50%, #0A0712 100%);
+  position: relative;
+}
+
+/* Section Background 8: Section #contato - Nebulosa Prismática Contato */
+.bg-contato-prism {
+  background: linear-gradient(180deg, #0A0712 0%, #1A0936 50%, #06040A 100%);
+  position: relative;
+}
+
+/* Section Background 9: Section #formularios - Nebulosa Prismática Formulários */
+.bg-formularios-prism {
+  background: linear-gradient(180deg, #06040A 0%, #17092C 50%, #0A0712 100%);
+  position: relative;
+}
+
+/* Lightbox Modal Animations & Pointer Events */
+#portfolio-modal {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+#portfolio-modal.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+#portfolio-modal:not(.hidden) {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Soft Prismatic Light Beam Divider */
+.prism-divider {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(145, 16, 220, 0.3) 20%, 
+    rgba(224, 86, 253, 0.9) 50%, 
+    rgba(145, 16, 220, 0.3) 80%, 
+    transparent 100%
+  );
+  box-shadow: 0 0 25px rgba(224, 86, 253, 0.7);
+  position: relative;
+  z-index: 20;
+}
+
+/* Floating Cosmic Particles Keyframes */
+@keyframes cosmic-float {
+  0% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+  50% { transform: translateY(-25px) rotate(180deg); opacity: 0.8; }
+  100% { transform: translateY(-50px) rotate(360deg); opacity: 0; }
+}
+
+.animate-cosmic-particle {
+  animation: cosmic-float 4s infinite ease-in-out;
+}
+
+/* FAQ Accordion Custom Component Styling */
+.faq-item {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: rgba(20, 14, 34, 0.9);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item.active {
+  border-color: rgba(179, 54, 255, 0.6);
+  background-color: rgba(24, 16, 42, 0.95);
+  box-shadow: 0 10px 30px rgba(145, 16, 220, 0.35);
+}
+
+.faq-btn {
+  width: 100% !important;
+  padding: 1.5rem 2rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1.25rem !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+  text-align: left !important;
+  box-sizing: border-box !important;
+}
+
+.faq-btn:focus {
+  outline: none !important;
+}
+
+.faq-content.hidden {
+  display: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+}
+
+.faq-content:not(.hidden) {
+  display: block !important;
+  padding: 1.25rem 2rem 1.75rem 2rem !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-sizing: border-box !important;
+}
+
+.faq-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D98BFF;
+  font-weight: bold;
+  font-size: 1.125rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+  background: rgba(145, 16, 220, 0.5);
+  border-color: rgba(179, 54, 255, 0.7);
+  color: #ffffff;
+}
+
+/* Mobile Height Optimization so Hero Content + CTA fit 100% Above the Fold */
+@media (max-width: 639px) {
+  .hero-mobile-fit {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 4.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
