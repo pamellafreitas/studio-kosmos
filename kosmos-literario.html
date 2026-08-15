@@ -154,9 +154,12 @@
           Sua História Merece um Visual com o <span class="font-serif italic font-normal text-[#D98BFF] text-glow-purple">Mesmo Peso</span> da Sua Escrita.
         </h1>
 
-        <!-- Subtítulo (Fonte Maior no Celular) -->
-        <p class="reveal-on-scroll reveal-delay-3 font-sans text-white/90 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed font-normal max-w-2xl">
+        <!-- Subtítulo Completo em Desktop / Resumido no Celular -->
+        <p class="reveal-on-scroll reveal-delay-3 font-sans text-white/90 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed font-normal max-w-2xl hidden sm:block">
           Design especializado para autores independentes, publicações Amazon KDP e lançamentos literários de alto impacto. Da capa ao Conteúdo A+, traduzimos o invisível em imagens que vendem.
+        </p>
+        <p class="reveal-on-scroll reveal-delay-3 font-sans text-white/90 text-xs xs:text-sm sm:hidden leading-relaxed font-normal max-w-xs">
+          Design especializado para autores e lançamentos KDP. Traduzimos sua história em imagens que vendem.
         </p>
 
         <!-- CTA Button Container (DESKTOP ONLY: Left Aligned) -->
@@ -179,17 +182,17 @@
 
       </div>
 
-      <!-- Right Column: 3D Cover Showcase -->
-      <div class="lg:col-span-5 w-full my-2 sm:my-6 lg:my-0 flex items-center justify-center relative min-h-[140px] sm:min-h-[220px] lg:min-h-[380px] py-1 sm:py-4">
+      <!-- Right Column: 3D Cover Showcase (Enlarged on Mobile) -->
+      <div class="lg:col-span-5 w-full my-3 sm:my-6 lg:my-0 flex items-center justify-center relative min-h-[200px] sm:min-h-[240px] lg:min-h-[380px] py-2 sm:py-4">
         
         <!-- Ambient Connecting Lines / Glow Effect -->
         <div class="absolute inset-0 pointer-events-none opacity-20 mix-blend-screen flex items-center justify-center">
-          <div class="w-36 h-36 sm:w-80 sm:h-80 rounded-full border border-white/20 border-dashed animate-spin-slow"></div>
+          <div class="w-44 h-44 sm:w-80 sm:h-80 rounded-full border border-white/20 border-dashed animate-spin-slow"></div>
         </div>
 
-        <!-- Isometric Staggered 3D Cards Stack -->
-        <div class="relative w-full flex items-center justify-center pointer-events-none py-1 sm:py-4 lg:py-8">
-          <div id="cards-wrapper" class="relative w-24 sm:w-40 md:w-48 lg:w-56 aspect-[4/5] scale-[0.65] sm:scale-85 md:scale-95 lg:scale-100 xl:scale-110" style="transform-style: preserve-3d; transform: perspective(2000px) rotate(-5deg) rotateY(-15deg) rotateX(10deg);">
+        <!-- Isometric Staggered 3D Cards Stack (Larger Scale on Mobile) -->
+        <div class="relative w-full flex items-center justify-center pointer-events-none py-2 sm:py-4 lg:py-8">
+          <div id="cards-wrapper" class="relative w-32 xs:w-36 sm:w-40 md:w-48 lg:w-56 aspect-[4/5] scale-[0.82] xs:scale-[0.90] sm:scale-85 md:scale-95 lg:scale-100 xl:scale-110" style="transform-style: preserve-3d; transform: perspective(2000px) rotate(-5deg) rotateY(-15deg) rotateX(10deg);">
             
             <!-- Card 3 (Back Layer) -->
             <div class="absolute inset-0 pointer-events-auto group z-10 hero-card-back">
